@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://InputField.cs" type="Script" id=1]
+
+[node name="InputField" type="MarginContainer"]
+margin_top = 121.0
+margin_right = 1010.0
+margin_bottom = 121.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 0
+custom_constants/margin_left = 10
+script = ExtResource( 1 )
+lineEditPath = NodePath("HSplitContainer/LineEdit")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+margin_left = 10.0
+margin_right = 1000.0
+margin_bottom = 24.0
+
+[node name="Label" type="Label" parent="HSplitContainer"]
+margin_right = 489.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Label"
+valign = 1
+
+[node name="LineEdit" type="LineEdit" parent="HSplitContainer"]
+margin_left = 501.0
+margin_right = 990.0
+margin_bottom = 24.0
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_speed = 0.5

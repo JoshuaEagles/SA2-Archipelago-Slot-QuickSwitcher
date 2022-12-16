@@ -1,0 +1,155 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://InputField.tscn" type="PackedScene" id=1]
+
+[node name="SA2APSlotQuickSwitch" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1017.0
+margin_bottom = 593.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+margin_right = 1010.0
+margin_bottom = 186.0
+size_flags_vertical = 3
+
+[node name="ItemList" type="ItemList" parent="PanelContainer/VBoxContainer/ScrollContainer"]
+margin_right = 998.0
+margin_bottom = 333.0
+size_flags_horizontal = 3
+items = [ "Item 0", null, false, "Item 1", null, false, "Item 2", null, false, "Item 3", null, false, "Item 4", null, false, "Item 5", null, false, "Item 6", null, false, "Item 7", null, false, "Item 8", null, false, "Item 9", null, false, "Item 10", null, false, "Item 11", null, false, "Item 12", null, false, "Item 13", null, false, "Item 14", null, false, "Item 15", null, false, "Item 16", null, false, "Item 17", null, false ]
+auto_height = true
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 190.0
+margin_right = 1010.0
+margin_bottom = 586.0
+size_flags_vertical = 0
+
+[node name="SetAsActiveButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer"]
+margin_right = 1010.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Set as Active"
+
+[node name="CreateNewButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer"]
+margin_top = 24.0
+margin_right = 1010.0
+margin_bottom = 44.0
+size_flags_horizontal = 3
+text = "Create New"
+
+[node name="DeleteButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer"]
+margin_top = 48.0
+margin_right = 1010.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+text = "Delete"
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/GridContainer"]
+margin_top = 72.0
+margin_right = 1010.0
+margin_bottom = 80.0
+custom_constants/separation = 8
+
+[node name="NameInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 84.0
+margin_bottom = 108.0
+
+[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/NameInput/HSplitContainer" index="0"]
+text = "Name"
+
+[node name="ServerIPInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 112.0
+margin_bottom = 136.0
+
+[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/ServerIPInput/HSplitContainer" index="0"]
+text = "Server IP"
+
+[node name="PlayerNameInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 140.0
+margin_bottom = 164.0
+
+[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/PlayerNameInput/HSplitContainer" index="0"]
+text = "Player Name"
+
+[node name="ServerPasswordInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 168.0
+margin_bottom = 192.0
+
+[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/ServerPasswordInput/HSplitContainer" index="0"]
+text = "Server Password"
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/VBoxContainer/GridContainer"]
+margin_top = 196.0
+margin_right = 1010.0
+margin_bottom = 204.0
+custom_constants/separation = 8
+
+[node name="MessageDisplayCountInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 208.0
+margin_bottom = 232.0
+
+[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageDisplayCountInput/HSplitContainer" index="0"]
+text = "Message Display Count"
+
+[node name="MessageDisplayDurationInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 236.0
+margin_bottom = 260.0
+
+[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageDisplayDurationInput/HSplitContainer" index="0"]
+text = "Message Display Duration"
+
+[node name="MessageFontSizeInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 264.0
+margin_bottom = 288.0
+
+[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageFontSizeInput/HSplitContainer" index="0"]
+text = "Message Font Size"
+
+[node name="MessageColorRedInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 292.0
+margin_bottom = 316.0
+
+[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageColorRedInput/HSplitContainer" index="0"]
+text = "Message Color Red"
+
+[node name="MessageColorGreenInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 320.0
+margin_bottom = 344.0
+
+[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageColorGreenInput/HSplitContainer" index="0"]
+text = "Message Color Green"
+
+[node name="MessageColorBlueInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
+margin_top = 348.0
+margin_bottom = 372.0
+
+[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageColorBlueInput/HSplitContainer" index="0"]
+text = "Message Color Blue"
+
+[node name="SaveButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer"]
+margin_top = 376.0
+margin_right = 1010.0
+margin_bottom = 396.0
+size_flags_horizontal = 3
+text = "Save"
+
+[editable path="PanelContainer/VBoxContainer/GridContainer/NameInput"]
+[editable path="PanelContainer/VBoxContainer/GridContainer/ServerIPInput"]
+[editable path="PanelContainer/VBoxContainer/GridContainer/PlayerNameInput"]
+[editable path="PanelContainer/VBoxContainer/GridContainer/ServerPasswordInput"]
+[editable path="PanelContainer/VBoxContainer/GridContainer/MessageDisplayCountInput"]
+[editable path="PanelContainer/VBoxContainer/GridContainer/MessageDisplayDurationInput"]
+[editable path="PanelContainer/VBoxContainer/GridContainer/MessageFontSizeInput"]
+[editable path="PanelContainer/VBoxContainer/GridContainer/MessageColorRedInput"]
+[editable path="PanelContainer/VBoxContainer/GridContainer/MessageColorGreenInput"]
+[editable path="PanelContainer/VBoxContainer/GridContainer/MessageColorBlueInput"]
