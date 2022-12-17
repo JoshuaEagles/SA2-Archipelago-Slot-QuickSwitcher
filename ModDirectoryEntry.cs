@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class ModPathEntry : Control
+public class ModDirectoryEntry : Control
 {
 	[Export]
 	NodePath acceptDialogPath;
@@ -11,16 +11,19 @@ public class ModPathEntry : Control
 	NodePath fileDialogPath;
 	FileDialog fileDialog;
 
+	[Signal]
+	delegate void mod_directory_updated(string directory);
+
 	public override void _Ready()
 	{
 		acceptDialog = GetNode<AcceptDialog>(acceptDialogPath);
 		fileDialog = GetNode<FileDialog>(fileDialogPath);
 
-		acceptDialog.Connect("confirmed", this, "OpenFileDialog");
-		fileDialog.Connect("dir_selected", this, "SaveModDirectory");
+		acceptDialog.Connect("confirmed", this, nameof(OpenFileDialog));
+		fileDialog.Connect("dir_selected", this, nameof(SaveModDirectory));
 	}
 
-	public void PromptForPathEntry()
+	public void PromptForDirectoryEntry()
 	{
 		acceptDialog.PopupCentered();	
 	}
@@ -33,8 +36,10 @@ public class ModPathEntry : Control
 	void SaveModDirectory(string directory)
 	{
 		File file = new File();
-		file.Open("user://modpath.txt", File.ModeFlags.Write);
+		file.Open("user://mod_directory.txt", File.ModeFlags.Write);
 		file.StoreString(directory);
 		file.Close();
+
+		EmitSignal(nameof(mod_directory_updated), directory);
 	}
 }

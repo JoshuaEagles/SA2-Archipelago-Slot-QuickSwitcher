@@ -4,12 +4,12 @@ using System;
 public class SetModDirectoryButton : Button
 {
 	[Export]
-	NodePath modPathEntryPath;
+	NodePath modDirectoryEntryPath;
 
 	public override void _Ready()
 	{
-		ModPathEntry modPathEntry = GetNode<ModPathEntry>(modPathEntryPath);
+		ModDirectoryEntry modDirectoryEntry = GetNode<ModDirectoryEntry>(modDirectoryEntryPath);
 
-		Connect("pressed", modPathEntry, "PromptForPathEntry");
+		Connect("pressed", modDirectoryEntry, "PromptForPathEntry");
 	}
 }
