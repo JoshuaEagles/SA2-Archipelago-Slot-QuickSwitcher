@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://InputField.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ModPathEntry.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SetModDirectoryButton.cs" type="Script" id=4]
 
 [node name="SA2APSlotQuickSwitch" type="Control"]
 anchor_right = 1.0
@@ -16,9 +18,24 @@ margin_top = 7.0
 margin_right = 1017.0
 margin_bottom = 593.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+[node name="SetModDirectoryButton" type="Button" parent="PanelContainer/VBoxContainer"]
 margin_right = 1010.0
-margin_bottom = 186.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+text = "Update Mod Directory"
+script = ExtResource( 4 )
+modPathEntryPath = NodePath("../../../ModPathEntry")
+
+[node name="HSeparator3" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 1010.0
+margin_bottom = 32.0
+custom_constants/separation = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 1010.0
+margin_bottom = 210.0
 size_flags_vertical = 3
 
 [node name="ItemList" type="ItemList" parent="PanelContainer/VBoxContainer/ScrollContainer"]
@@ -28,128 +45,118 @@ size_flags_horizontal = 3
 items = [ "Item 0", null, false, "Item 1", null, false, "Item 2", null, false, "Item 3", null, false, "Item 4", null, false, "Item 5", null, false, "Item 6", null, false, "Item 7", null, false, "Item 8", null, false, "Item 9", null, false, "Item 10", null, false, "Item 11", null, false, "Item 12", null, false, "Item 13", null, false, "Item 14", null, false, "Item 15", null, false, "Item 16", null, false, "Item 17", null, false ]
 auto_height = true
 
-[node name="GridContainer" type="GridContainer" parent="PanelContainer/VBoxContainer"]
-margin_top = 190.0
+[node name="SetAsActiveButton" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 214.0
 margin_right = 1010.0
-margin_bottom = 586.0
-size_flags_vertical = 0
-
-[node name="SetAsActiveButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer"]
-margin_right = 1010.0
-margin_bottom = 20.0
+margin_bottom = 234.0
 size_flags_horizontal = 3
 text = "Set as Active"
 
-[node name="CreateNewButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer"]
-margin_top = 24.0
+[node name="DeleteButton" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 238.0
 margin_right = 1010.0
-margin_bottom = 44.0
-size_flags_horizontal = 3
-text = "Create New"
-
-[node name="DeleteButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer"]
-margin_top = 48.0
-margin_right = 1010.0
-margin_bottom = 68.0
+margin_bottom = 258.0
 size_flags_horizontal = 3
 text = "Delete"
 
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer/GridContainer"]
-margin_top = 72.0
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+margin_top = 262.0
 margin_right = 1010.0
-margin_bottom = 80.0
+margin_bottom = 270.0
 custom_constants/separation = 8
 
-[node name="NameInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 84.0
-margin_bottom = 108.0
+[node name="NameInput" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 274.0
+margin_bottom = 298.0
 
-[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/NameInput/HSplitContainer" index="0"]
+[node name="Label" parent="PanelContainer/VBoxContainer/NameInput/HSplitContainer" index="0"]
 text = "Name"
 
-[node name="ServerIPInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 112.0
-margin_bottom = 136.0
+[node name="ServerIPInput" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 302.0
+margin_bottom = 326.0
 
-[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/ServerIPInput/HSplitContainer" index="0"]
+[node name="Label" parent="PanelContainer/VBoxContainer/ServerIPInput/HSplitContainer" index="0"]
 text = "Server IP"
 
-[node name="PlayerNameInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 140.0
-margin_bottom = 164.0
+[node name="PlayerNameInput" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 330.0
+margin_bottom = 354.0
 
-[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/PlayerNameInput/HSplitContainer" index="0"]
+[node name="Label" parent="PanelContainer/VBoxContainer/PlayerNameInput/HSplitContainer" index="0"]
 text = "Player Name"
 
-[node name="ServerPasswordInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 168.0
-margin_bottom = 192.0
+[node name="ServerPasswordInput" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 358.0
+margin_bottom = 382.0
 
-[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/ServerPasswordInput/HSplitContainer" index="0"]
+[node name="Label" parent="PanelContainer/VBoxContainer/ServerPasswordInput/HSplitContainer" index="0"]
 text = "Server Password"
 
-[node name="HSeparator2" type="HSeparator" parent="PanelContainer/VBoxContainer/GridContainer"]
-margin_top = 196.0
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/VBoxContainer"]
+margin_top = 386.0
 margin_right = 1010.0
-margin_bottom = 204.0
+margin_bottom = 394.0
 custom_constants/separation = 8
 
-[node name="MessageDisplayCountInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 208.0
-margin_bottom = 232.0
+[node name="MessageDisplayCountInput" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 398.0
+margin_bottom = 422.0
 
-[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageDisplayCountInput/HSplitContainer" index="0"]
+[node name="Label" parent="PanelContainer/VBoxContainer/MessageDisplayCountInput/HSplitContainer" index="0"]
 text = "Message Display Count"
 
-[node name="MessageDisplayDurationInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 236.0
-margin_bottom = 260.0
+[node name="MessageDisplayDurationInput" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 426.0
+margin_bottom = 450.0
 
-[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageDisplayDurationInput/HSplitContainer" index="0"]
+[node name="Label" parent="PanelContainer/VBoxContainer/MessageDisplayDurationInput/HSplitContainer" index="0"]
 text = "Message Display Duration"
 
-[node name="MessageFontSizeInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 264.0
-margin_bottom = 288.0
+[node name="MessageFontSizeInput" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 454.0
+margin_bottom = 478.0
 
-[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageFontSizeInput/HSplitContainer" index="0"]
+[node name="Label" parent="PanelContainer/VBoxContainer/MessageFontSizeInput/HSplitContainer" index="0"]
 text = "Message Font Size"
 
-[node name="MessageColorRedInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 292.0
-margin_bottom = 316.0
+[node name="MessageColorRedInput" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 482.0
+margin_bottom = 506.0
 
-[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageColorRedInput/HSplitContainer" index="0"]
+[node name="Label" parent="PanelContainer/VBoxContainer/MessageColorRedInput/HSplitContainer" index="0"]
 text = "Message Color Red"
 
-[node name="MessageColorGreenInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 320.0
-margin_bottom = 344.0
+[node name="MessageColorGreenInput" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 510.0
+margin_bottom = 534.0
 
-[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageColorGreenInput/HSplitContainer" index="0"]
+[node name="Label" parent="PanelContainer/VBoxContainer/MessageColorGreenInput/HSplitContainer" index="0"]
 text = "Message Color Green"
 
-[node name="MessageColorBlueInput" parent="PanelContainer/VBoxContainer/GridContainer" instance=ExtResource( 1 )]
-margin_top = 348.0
-margin_bottom = 372.0
+[node name="MessageColorBlueInput" parent="PanelContainer/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 538.0
+margin_bottom = 562.0
 
-[node name="Label" parent="PanelContainer/VBoxContainer/GridContainer/MessageColorBlueInput/HSplitContainer" index="0"]
+[node name="Label" parent="PanelContainer/VBoxContainer/MessageColorBlueInput/HSplitContainer" index="0"]
 text = "Message Color Blue"
 
-[node name="SaveButton" type="Button" parent="PanelContainer/VBoxContainer/GridContainer"]
-margin_top = 376.0
+[node name="SaveButton" type="Button" parent="PanelContainer/VBoxContainer"]
+margin_top = 566.0
 margin_right = 1010.0
-margin_bottom = 396.0
+margin_bottom = 586.0
 size_flags_horizontal = 3
 text = "Save"
 
-[editable path="PanelContainer/VBoxContainer/GridContainer/NameInput"]
-[editable path="PanelContainer/VBoxContainer/GridContainer/ServerIPInput"]
-[editable path="PanelContainer/VBoxContainer/GridContainer/PlayerNameInput"]
-[editable path="PanelContainer/VBoxContainer/GridContainer/ServerPasswordInput"]
-[editable path="PanelContainer/VBoxContainer/GridContainer/MessageDisplayCountInput"]
-[editable path="PanelContainer/VBoxContainer/GridContainer/MessageDisplayDurationInput"]
-[editable path="PanelContainer/VBoxContainer/GridContainer/MessageFontSizeInput"]
-[editable path="PanelContainer/VBoxContainer/GridContainer/MessageColorRedInput"]
-[editable path="PanelContainer/VBoxContainer/GridContainer/MessageColorGreenInput"]
-[editable path="PanelContainer/VBoxContainer/GridContainer/MessageColorBlueInput"]
+[node name="ModPathEntry" parent="." instance=ExtResource( 3 )]
+
+[editable path="PanelContainer/VBoxContainer/NameInput"]
+[editable path="PanelContainer/VBoxContainer/ServerIPInput"]
+[editable path="PanelContainer/VBoxContainer/PlayerNameInput"]
+[editable path="PanelContainer/VBoxContainer/ServerPasswordInput"]
+[editable path="PanelContainer/VBoxContainer/MessageDisplayCountInput"]
+[editable path="PanelContainer/VBoxContainer/MessageDisplayDurationInput"]
+[editable path="PanelContainer/VBoxContainer/MessageFontSizeInput"]
+[editable path="PanelContainer/VBoxContainer/MessageColorRedInput"]
+[editable path="PanelContainer/VBoxContainer/MessageColorGreenInput"]
+[editable path="PanelContainer/VBoxContainer/MessageColorBlueInput"]

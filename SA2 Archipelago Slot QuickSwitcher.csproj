@@ -3,4 +3,7 @@
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>SA2ArchipelagoSlotQuickSwitcher</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="ini-parser" Version="2.5.2" />
+  </ItemGroup>
 </Project>

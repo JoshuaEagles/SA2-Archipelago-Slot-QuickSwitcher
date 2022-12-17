@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ModPathEntry.cs" type="Script" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[node name="ModPathEntry" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+acceptDialogPath = NodePath("AcceptDialog")
+fileDialogPath = NodePath("FileDialog")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_left = 122.0
+margin_top = 60.0
+margin_right = 802.0
+margin_bottom = 411.0
+window_title = "Choose the AP mod directory"
+resizable = true
+mode_overrides_title = false
+mode = 2
+access = 2
+show_hidden_files = true
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+margin_right = 83.0
+margin_bottom = 58.0
+theme = SubResource( 1 )
+dialog_text = "After clicking OK, choose the directory of the SA2B Archipelago mod. 
+
+Examples:
+Windows: C:/Program Files (x86)/Steam/steamapps/common/Sonic Adventure 2/mods/SA2B_Archipelago/
+Linux: /home/user/.local/share/Steam/steamapps/common/Sonic Adventure 2/mods/SA2B_Archipelago/"
