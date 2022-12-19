@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://InputField.cs" type="Script" id=1]
+[ext_resource path="res://UIComponents/InputField/InputField.cs" type="Script" id=1]
 
 [node name="InputField" type="MarginContainer"]
 margin_top = 121.0

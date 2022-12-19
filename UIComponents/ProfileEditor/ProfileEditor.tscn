@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://ProfileEditor.cs" type="Script" id=1]
-[ext_resource path="res://InputField.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UIComponents/ProfileEditor/ProfileEditor.cs" type="Script" id=1]
+[ext_resource path="res://UIComponents/InputField/InputField.tscn" type="PackedScene" id=2]
 
 [node name="ProfileEditor" type="VBoxContainer"]
 margin_top = 274.0
