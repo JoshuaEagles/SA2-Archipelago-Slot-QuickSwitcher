@@ -10,6 +10,6 @@ public class SetModDirectoryButton : Button
 	{
 		ModDirectoryEntry modDirectoryEntry = GetNode<ModDirectoryEntry>(modDirectoryEntryPath);
 
-		Connect("pressed", modDirectoryEntry, "PromptForPathEntry");
+		Connect("pressed", modDirectoryEntry, nameof(ModDirectoryEntry.PromptForDirectoryEntry));
 	}
 }

@@ -12,7 +12,7 @@ public class ModDirectoryEntry : Control
 	FileDialog fileDialog;
 
 	[Signal]
-	delegate void mod_directory_updated(string directory);
+	public delegate void mod_directory_updated(string directory);
 
 	public override void _Ready()
 	{
