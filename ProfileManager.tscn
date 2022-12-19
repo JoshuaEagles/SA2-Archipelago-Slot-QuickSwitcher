@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ProfileManager.cs" type="Script" id=1]
+
+[node name="ProfileManager" type="VBoxContainer"]
+margin_top = 36.0
+margin_right = 1266.0
+margin_bottom = 458.0
+size_flags_vertical = 3
+script = ExtResource( 1 )
+itemListPath = NodePath("ScrollContainer/ItemList")
+setAsActiveButtonPath = NodePath("SetAsActiveButton")
+deleteButtonPath = NodePath("DeleteButton")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_right = 1266.0
+margin_bottom = 374.0
+size_flags_vertical = 3
+
+[node name="ItemList" type="ItemList" parent="ScrollContainer"]
+margin_right = 1266.0
+margin_bottom = 374.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SetAsActiveButton" type="Button" parent="."]
+margin_top = 378.0
+margin_right = 1266.0
+margin_bottom = 398.0
+size_flags_horizontal = 3
+text = "Set as Active"
+
+[node name="DeleteButton" type="Button" parent="."]
+margin_top = 402.0
+margin_right = 1266.0
+margin_bottom = 422.0
+size_flags_horizontal = 3
+text = "Delete"
