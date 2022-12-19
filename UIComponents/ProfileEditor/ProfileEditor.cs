@@ -5,6 +5,7 @@ using IniParser.Model;
 using IniParser.Model.Configuration;
 using IniParser.Model.Formatting;
 using IniParser.Parser;
+using System.Text;
 
 public class ProfileEditor : VBoxContainer
 {
@@ -99,8 +100,15 @@ public class ProfileEditor : VBoxContainer
 
         var profilePath = $"{profileStorageDirectoryProvider.ProfileStorageDirectory}/{profileName}.ini";
 
-        var fileParser = new FileIniDataParser();
-        fileParser.WriteFile(profilePath, profileData);
+        byte[] profileDataByteArray = profileData.ToString().ToUTF8();
+        // byte[] profileDataByteArrayNoBOM = new byte[profileDataByteArray.Length - 2];
+        // // The first two bytes are a BOM, get rid of them
+        // Array.Copy(profileDataByteArray, 2, profileDataByteArrayNoBOM, 0, profileDataByteArrayNoBOM.Length);
+
+        var file = new File();
+        file.Open(profilePath, File.ModeFlags.Write);
+        file.StoreBuffer(profileDataByteArray);
+        file.Close();
 
         var profileChangedSignalProvider = GetNode<ProfileChangedSignalProvider>("/root/ProfileChangedSignalProvider");
         profileChangedSignalProvider.EmitSignal(nameof(ProfileChangedSignalProvider.profile_changed));

@@ -48,6 +48,8 @@ public class ProfileStorageDirectoryProvider : Node
         _profileStorageDirectory = profileStorageDirectory;
 
 		CreateProfileStorageDirectory(modDirectory);
+
+        GetNode("/root/ProfileChangedSignalProvider").EmitSignal("profile_changed");
 	}
 
 	void CreateProfileStorageDirectory(string modDirectory)
