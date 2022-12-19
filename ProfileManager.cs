@@ -55,6 +55,8 @@ public class ProfileManager : VBoxContainer
 
             filename = directory.GetNext();
         }
+
+        itemList.SortItemsByText();
     }
 
     void SetProfileAsActive()
@@ -63,6 +65,12 @@ public class ProfileManager : VBoxContainer
         {
             return;
         }
+
+        var directory = new Directory();
+
+        string selectedProfileFilename = GetSelectedProfileFilename();
+
+        directory.Copy(selectedProfileFilename, profileStorageDirectoryProvider.GetModConfigPath());
     }
 
     void DeleteProfile()
@@ -72,22 +80,30 @@ public class ProfileManager : VBoxContainer
             return;
         }
 
+        string selectedProfileFilename = GetSelectedProfileFilename();
+        int selectedindex = itemList.GetSelectedItems()[0];
+
+        var directory = new Directory();
+        directory.Remove(selectedProfileFilename);
+
+        profileChangedSignalProvider.EmitSignal(nameof(ProfileChangedSignalProvider.profile_changed));
+
+        if (itemList.Items.Count != 0)
+        {
+            itemList.Select(Mathf.Min(selectedindex, itemList.Items.Count / 3) - 1);
+        }
+    }
+
+    string GetSelectedProfileFilename()
+    {
         int selectedindex = itemList.GetSelectedItems()[0];
         // Godot stores the items as an untyped array in a really awkward way
         // it's completely flat, and for each item put in the first index is the name, the second is the icon (or null), and the third is an enabled toggle
         // eg: ["myprofile", [Object:null], False, "myotherprofile", [Object:null], False]
         string selectedProfileFilename = itemList.Items[(selectedindex * 3)].ToString();
-        selectedProfileFilename += ".ini";
 
-        var directory = new Directory();
-        directory.Remove($"{profileStorageDirectoryProvider.ProfileStorageDirectory}/{selectedProfileFilename}");
+        selectedProfileFilename = $"{profileStorageDirectoryProvider.ProfileStorageDirectory}/{selectedProfileFilename}.ini";
 
-        profileChangedSignalProvider.EmitSignal(nameof(ProfileChangedSignalProvider.profile_changed));
-
-        GD.Print(itemList.Items.Count);
-        if (itemList.Items.Count != 0)
-        {
-            itemList.Select(Mathf.Min(selectedindex, itemList.Items.Count / 3) - 1);
-        }
+        return selectedProfileFilename;
     }
 }
