@@ -9,91 +9,103 @@ margin_right = 1010.0
 margin_bottom = 586.0
 script = ExtResource( 1 )
 saveButtonPath = NodePath("SaveButton")
-profileNamePath = NodePath("ProfileNameInput")
-serverIPPath = NodePath("ServerIPInput")
-playerNamePath = NodePath("PlayerNameInput")
-serverPasswordPath = NodePath("ServerPasswordInput")
-messageDisplayCountPath = NodePath("MessageDisplayCountInput")
-messageDisplayDurationPath = NodePath("MessageDisplayDurationInput")
-messageFontSizePath = NodePath("MessageFontSizeInput")
-messageColorRedPath = NodePath("MessageColorRedInput")
-messageColorGreenPath = NodePath("MessageColorGreenInput")
-messageColorBluePath = NodePath("MessageColorBlueInput")
+profileNamePath = NodePath("ScrollContainer/VBoxContainer/ProfileNameInput")
+serverIPPath = NodePath("ScrollContainer/VBoxContainer/ServerIPInput")
+playerNamePath = NodePath("ScrollContainer/VBoxContainer/PlayerNameInput")
+serverPasswordPath = NodePath("ScrollContainer/VBoxContainer/ServerPasswordInput")
+messageDisplayCountPath = NodePath("ScrollContainer/VBoxContainer/MessageDisplayCountInput")
+messageDisplayDurationPath = NodePath("ScrollContainer/VBoxContainer/MessageDisplayDurationInput")
+messageFontSizePath = NodePath("ScrollContainer/VBoxContainer/MessageFontSizeInput")
+messageColorRedPath = NodePath("ScrollContainer/VBoxContainer/MessageColorRedInput")
+messageColorGreenPath = NodePath("ScrollContainer/VBoxContainer/MessageColorGreenInput")
+messageColorBluePath = NodePath("ScrollContainer/VBoxContainer/MessageColorBlueInput")
 
-[node name="ProfileNameInput" parent="." instance=ExtResource( 2 )]
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_right = 1010.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 1010.0
+margin_bottom = 288.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ProfileNameInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 0.0
 margin_bottom = 24.0
 
-[node name="Label" parent="ProfileNameInput/HSplitContainer" index="0"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/ProfileNameInput/HSplitContainer" index="0"]
 text = "Profile Name"
 
-[node name="ServerIPInput" parent="." instance=ExtResource( 2 )]
+[node name="ServerIPInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 28.0
 margin_bottom = 52.0
 
-[node name="Label" parent="ServerIPInput/HSplitContainer" index="0"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/ServerIPInput/HSplitContainer" index="0"]
 text = "Server IP"
 
-[node name="PlayerNameInput" parent="." instance=ExtResource( 2 )]
+[node name="PlayerNameInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 56.0
 margin_bottom = 80.0
 
-[node name="Label" parent="PlayerNameInput/HSplitContainer" index="0"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/PlayerNameInput/HSplitContainer" index="0"]
 text = "Player Name"
 
-[node name="ServerPasswordInput" parent="." instance=ExtResource( 2 )]
+[node name="ServerPasswordInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 84.0
 margin_bottom = 108.0
 
-[node name="Label" parent="ServerPasswordInput/HSplitContainer" index="0"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/ServerPasswordInput/HSplitContainer" index="0"]
 text = "Server Password"
 
-[node name="HSeparator2" type="HSeparator" parent="."]
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/VBoxContainer"]
 margin_top = 112.0
 margin_right = 1010.0
 margin_bottom = 120.0
 custom_constants/separation = 8
 
-[node name="MessageDisplayCountInput" parent="." instance=ExtResource( 2 )]
+[node name="MessageDisplayCountInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 124.0
 margin_bottom = 148.0
 
-[node name="Label" parent="MessageDisplayCountInput/HSplitContainer" index="0"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/MessageDisplayCountInput/HSplitContainer" index="0"]
 text = "Message Display Count"
 
-[node name="MessageDisplayDurationInput" parent="." instance=ExtResource( 2 )]
+[node name="MessageDisplayDurationInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 152.0
 margin_bottom = 176.0
 
-[node name="Label" parent="MessageDisplayDurationInput/HSplitContainer" index="0"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/MessageDisplayDurationInput/HSplitContainer" index="0"]
 text = "Message Display Duration"
 
-[node name="MessageFontSizeInput" parent="." instance=ExtResource( 2 )]
+[node name="MessageFontSizeInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 180.0
 margin_bottom = 204.0
 
-[node name="Label" parent="MessageFontSizeInput/HSplitContainer" index="0"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/MessageFontSizeInput/HSplitContainer" index="0"]
 text = "Message Font Size"
 
-[node name="MessageColorRedInput" parent="." instance=ExtResource( 2 )]
+[node name="MessageColorRedInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 208.0
 margin_bottom = 232.0
 
-[node name="Label" parent="MessageColorRedInput/HSplitContainer" index="0"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/MessageColorRedInput/HSplitContainer" index="0"]
 text = "Message Color Red"
 
-[node name="MessageColorGreenInput" parent="." instance=ExtResource( 2 )]
+[node name="MessageColorGreenInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 236.0
 margin_bottom = 260.0
 
-[node name="Label" parent="MessageColorGreenInput/HSplitContainer" index="0"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/MessageColorGreenInput/HSplitContainer" index="0"]
 text = "Message Color Green"
 
-[node name="MessageColorBlueInput" parent="." instance=ExtResource( 2 )]
+[node name="MessageColorBlueInput" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 264.0
 margin_bottom = 288.0
 
-[node name="Label" parent="MessageColorBlueInput/HSplitContainer" index="0"]
+[node name="Label" parent="ScrollContainer/VBoxContainer/MessageColorBlueInput/HSplitContainer" index="0"]
 text = "Message Color Blue"
 
 [node name="SaveButton" type="Button" parent="."]
@@ -103,13 +115,13 @@ margin_bottom = 312.0
 size_flags_horizontal = 3
 text = "Save"
 
-[editable path="ProfileNameInput"]
-[editable path="ServerIPInput"]
-[editable path="PlayerNameInput"]
-[editable path="ServerPasswordInput"]
-[editable path="MessageDisplayCountInput"]
-[editable path="MessageDisplayDurationInput"]
-[editable path="MessageFontSizeInput"]
-[editable path="MessageColorRedInput"]
-[editable path="MessageColorGreenInput"]
-[editable path="MessageColorBlueInput"]
+[editable path="ScrollContainer/VBoxContainer/ProfileNameInput"]
+[editable path="ScrollContainer/VBoxContainer/ServerIPInput"]
+[editable path="ScrollContainer/VBoxContainer/PlayerNameInput"]
+[editable path="ScrollContainer/VBoxContainer/ServerPasswordInput"]
+[editable path="ScrollContainer/VBoxContainer/MessageDisplayCountInput"]
+[editable path="ScrollContainer/VBoxContainer/MessageDisplayDurationInput"]
+[editable path="ScrollContainer/VBoxContainer/MessageFontSizeInput"]
+[editable path="ScrollContainer/VBoxContainer/MessageColorRedInput"]
+[editable path="ScrollContainer/VBoxContainer/MessageColorGreenInput"]
+[editable path="ScrollContainer/VBoxContainer/MessageColorBlueInput"]

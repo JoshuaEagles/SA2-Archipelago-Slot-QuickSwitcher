@@ -22,7 +22,6 @@ margin_right = 1266.0
 margin_bottom = 374.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-items = [ "Item 0", null, false, "Item 1", null, false ]
 allow_reselect = true
 
 [node name="SetAsActiveButton" type="Button" parent="."]
