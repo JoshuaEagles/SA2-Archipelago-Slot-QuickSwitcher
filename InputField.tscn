@@ -16,9 +16,10 @@ lineEditPath = NodePath("HSplitContainer/LineEdit")
 margin_left = 10.0
 margin_right = 1000.0
 margin_bottom = 24.0
+dragger_visibility = 2
 
 [node name="Label" type="Label" parent="HSplitContainer"]
-margin_right = 489.0
+margin_right = 495.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -26,7 +27,7 @@ text = "Label"
 valign = 1
 
 [node name="LineEdit" type="LineEdit" parent="HSplitContainer"]
-margin_left = 501.0
+margin_left = 495.0
 margin_right = 990.0
 margin_bottom = 24.0
 size_flags_horizontal = 3

@@ -10,6 +10,7 @@ public class ProfileEditor : VBoxContainer
 {
     [Export]
     NodePath saveButtonPath;
+    Button saveButton;
 
     [Export]
     NodePath profileNamePath;
@@ -37,15 +38,32 @@ public class ProfileEditor : VBoxContainer
 
     public override void _Ready()
     {
-        GetNode(saveButtonPath).Connect("pressed", this, nameof(SaveProfileToFile));
+        saveButton = GetNode<Button>(saveButtonPath);
+        saveButton.Connect("pressed", this, nameof(SaveProfileToFile));
 
         profileStorageDirectoryProvider = GetNode<ProfileStorageDirectoryProvider>("/root/ProfileStorageDirectoryProvider");
+
+        var profileSelectedSignalProvider = GetNode<ProfileSelectedSignalProvider>("/root/ProfileSelectedSignalProvider");
+        profileSelectedSignalProvider.Connect("profile_selected", this, nameof(LoadProfileFromFile));
+
+        profileSelectedSignalProvider.Connect("profile_selected", this, nameof(CurrentActiveProfileSaveDisable));
+        GetNode(profileNamePath).Connect("text_changed", this, nameof(CurrentActiveProfileSaveDisable));
     }
 
     public void LoadProfileFromFile(string profileName)
     {
         var fileParser = new FileIniDataParser();
-        IniData profileData = fileParser.ReadFile($"{profileStorageDirectoryProvider.ProfileStorageDirectory}/{profileName}.ini");
+
+        IniData profileData;
+        if (profileName == "Current Active Profile")
+        {
+            profileData = fileParser.ReadFile($"{profileStorageDirectoryProvider.ProfileStorageDirectory}/../config.ini");
+        }
+        else
+        {
+            profileData = fileParser.ReadFile($"{profileStorageDirectoryProvider.ProfileStorageDirectory}/{profileName}.ini");
+        }
+
         profileData.Configuration = GetParserConfiguration();
 
         GetNode<InputField>(profileNamePath).Text = profileName;
@@ -105,5 +123,10 @@ public class ProfileEditor : VBoxContainer
         }
 
         profileData[section][key] = value;
+    }
+
+    void CurrentActiveProfileSaveDisable(string profileName)
+    {
+        saveButton.Disabled = profileName == "Current Active Profile";
     }
 }
