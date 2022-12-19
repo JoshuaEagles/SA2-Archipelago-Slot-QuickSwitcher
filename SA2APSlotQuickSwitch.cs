@@ -11,28 +11,15 @@ public class SA2APSlotQuickSwitch : Control
 	{
 		modDirectoryEntry = GetNode<ModDirectoryEntry>(modDirectoryEntryPath);
 
-		modDirectoryEntry.Connect(nameof(ModDirectoryEntry.mod_directory_updated), this, nameof(CreateProfileStorageDirectory));
-
-		if (!IsModDirectorySaved())
+		ProfileStorageDirectoryProvider profileStorageDirectoryProvider = GetNode<ProfileStorageDirectoryProvider>("/root/ProfileStorageDirectoryProvider");
+		if (!profileStorageDirectoryProvider.IsModDirectorySaved())
 		{
 			PromptForModDirectory();
 		}
 	}
 
-	bool IsModDirectorySaved()
-	{
-		return new File().FileExists("user://mod_directory.txt");
-	}
-
 	void PromptForModDirectory()
 	{
 		modDirectoryEntry.PromptForDirectoryEntry();
-	}
-
-	void CreateProfileStorageDirectory(string directory)
-	{
-		Directory gdDirectory = new Directory();
-
-		gdDirectory.MakeDir($"{directory}/QuickSwitchProfiles");
 	}
 }

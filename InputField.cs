@@ -7,13 +7,20 @@ public class InputField : MarginContainer
 	NodePath lineEditPath;
 	LineEdit lineEdit;
 
+	public string Text 
+	{
+		get
+		{
+			return lineEdit.Text;
+		}
+		set
+		{
+			lineEdit.Text = value;
+		}
+	}
+
 	public override void _Ready()
 	{
 		lineEdit = GetNode<LineEdit>(lineEditPath);
-	}
-
-	public string GetInput() 
-	{
-		return lineEdit?.Text;
 	}
 }

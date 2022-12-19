@@ -11,16 +11,15 @@ public class ModDirectoryEntry : Control
 	NodePath fileDialogPath;
 	FileDialog fileDialog;
 
-	[Signal]
-	public delegate void mod_directory_updated(string directory);
-
 	public override void _Ready()
 	{
 		acceptDialog = GetNode<AcceptDialog>(acceptDialogPath);
 		fileDialog = GetNode<FileDialog>(fileDialogPath);
 
+		var profileStorageDirectoryProvider = GetNode<ProfileStorageDirectoryProvider>("/root/ProfileStorageDirectoryProvider");
+
 		acceptDialog.Connect("confirmed", this, nameof(OpenFileDialog));
-		fileDialog.Connect("dir_selected", this, nameof(SaveModDirectory));
+		fileDialog.Connect("dir_selected", profileStorageDirectoryProvider, nameof(profileStorageDirectoryProvider.SaveProfileStorageDirectory));
 	}
 
 	public void PromptForDirectoryEntry()
@@ -31,15 +30,5 @@ public class ModDirectoryEntry : Control
 	void OpenFileDialog()
 	{
 		fileDialog.PopupCentered();
-	}
-
-	void SaveModDirectory(string directory)
-	{
-		File file = new File();
-		file.Open("user://mod_directory.txt", File.ModeFlags.Write);
-		file.StoreString(directory);
-		file.Close();
-
-		EmitSignal(nameof(mod_directory_updated), directory);
 	}
 }

@@ -1,0 +1,115 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ProfileEditor.cs" type="Script" id=1]
+[ext_resource path="res://InputField.tscn" type="PackedScene" id=2]
+
+[node name="ProfileEditor" type="VBoxContainer"]
+margin_top = 274.0
+margin_right = 1010.0
+margin_bottom = 586.0
+script = ExtResource( 1 )
+saveButtonPath = NodePath("SaveButton")
+profileNamePath = NodePath("ProfileNameInput")
+serverIPPath = NodePath("ServerIPInput")
+playerNamePath = NodePath("PlayerNameInput")
+serverPasswordPath = NodePath("ServerPasswordInput")
+messageDisplayCountPath = NodePath("MessageDisplayCountInput")
+messageDisplayDurationPath = NodePath("MessageDisplayDurationInput")
+messageFontSizePath = NodePath("MessageFontSizeInput")
+messageColorRedPath = NodePath("MessageColorRedInput")
+messageColorGreenPath = NodePath("MessageColorGreenInput")
+messageColorBluePath = NodePath("MessageColorBlueInput")
+
+[node name="ProfileNameInput" parent="." instance=ExtResource( 2 )]
+margin_top = 0.0
+margin_bottom = 24.0
+
+[node name="Label" parent="ProfileNameInput/HSplitContainer" index="0"]
+text = "Profile Name"
+
+[node name="ServerIPInput" parent="." instance=ExtResource( 2 )]
+margin_top = 28.0
+margin_bottom = 52.0
+
+[node name="Label" parent="ServerIPInput/HSplitContainer" index="0"]
+text = "Server IP"
+
+[node name="PlayerNameInput" parent="." instance=ExtResource( 2 )]
+margin_top = 56.0
+margin_bottom = 80.0
+
+[node name="Label" parent="PlayerNameInput/HSplitContainer" index="0"]
+text = "Player Name"
+
+[node name="ServerPasswordInput" parent="." instance=ExtResource( 2 )]
+margin_top = 84.0
+margin_bottom = 108.0
+
+[node name="Label" parent="ServerPasswordInput/HSplitContainer" index="0"]
+text = "Server Password"
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+margin_top = 112.0
+margin_right = 1010.0
+margin_bottom = 120.0
+custom_constants/separation = 8
+
+[node name="MessageDisplayCountInput" parent="." instance=ExtResource( 2 )]
+margin_top = 124.0
+margin_bottom = 148.0
+
+[node name="Label" parent="MessageDisplayCountInput/HSplitContainer" index="0"]
+text = "Message Display Count"
+
+[node name="MessageDisplayDurationInput" parent="." instance=ExtResource( 2 )]
+margin_top = 152.0
+margin_bottom = 176.0
+
+[node name="Label" parent="MessageDisplayDurationInput/HSplitContainer" index="0"]
+text = "Message Display Duration"
+
+[node name="MessageFontSizeInput" parent="." instance=ExtResource( 2 )]
+margin_top = 180.0
+margin_bottom = 204.0
+
+[node name="Label" parent="MessageFontSizeInput/HSplitContainer" index="0"]
+text = "Message Font Size"
+
+[node name="MessageColorRedInput" parent="." instance=ExtResource( 2 )]
+margin_top = 208.0
+margin_bottom = 232.0
+
+[node name="Label" parent="MessageColorRedInput/HSplitContainer" index="0"]
+text = "Message Color Red"
+
+[node name="MessageColorGreenInput" parent="." instance=ExtResource( 2 )]
+margin_top = 236.0
+margin_bottom = 260.0
+
+[node name="Label" parent="MessageColorGreenInput/HSplitContainer" index="0"]
+text = "Message Color Green"
+
+[node name="MessageColorBlueInput" parent="." instance=ExtResource( 2 )]
+margin_top = 264.0
+margin_bottom = 288.0
+
+[node name="Label" parent="MessageColorBlueInput/HSplitContainer" index="0"]
+text = "Message Color Blue"
+
+[node name="SaveButton" type="Button" parent="."]
+margin_top = 292.0
+margin_right = 1010.0
+margin_bottom = 312.0
+size_flags_horizontal = 3
+text = "Save"
+
+[editable path="ProfileNameInput"]
+[editable path="ServerIPInput"]
+[editable path="PlayerNameInput"]
+[editable path="ServerPasswordInput"]
+[editable path="MessageDisplayCountInput"]
+[editable path="MessageDisplayDurationInput"]
+[editable path="MessageFontSizeInput"]
+[editable path="MessageColorRedInput"]
+[editable path="MessageColorGreenInput"]
+[editable path="MessageColorBlueInput"]
