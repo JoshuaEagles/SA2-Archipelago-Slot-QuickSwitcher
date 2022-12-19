@@ -45,14 +45,19 @@ margin_right = 626.0
 margin_bottom = 56.0
 custom_constants/separation = 8
 
-[node name="TabContainer" type="TabContainer" parent="PanelContainer/VBoxContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="PanelContainer/VBoxContainer"]
 margin_top = 60.0
 margin_right = 626.0
 margin_bottom = 498.0
 size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="PanelContainer/VBoxContainer/VSplitContainer"]
+margin_right = 626.0
+margin_bottom = 259.0
+size_flags_vertical = 3
 tab_align = 0
 
-[node name="ProfileManager" parent="PanelContainer/VBoxContainer/TabContainer" instance=ExtResource( 4 )]
+[node name="ProfileManager" parent="PanelContainer/VBoxContainer/VSplitContainer/TabContainer" instance=ExtResource( 4 )]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -60,10 +65,17 @@ margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[node name="ProfileEditor" parent="PanelContainer/VBoxContainer/TabContainer" instance=ExtResource( 3 )]
+[node name="ProfileEditor" parent="PanelContainer/VBoxContainer/VSplitContainer/TabContainer" instance=ExtResource( 3 )]
 visible = false
 margin_top = 12.0
 margin_right = 626.0
 margin_bottom = 324.0
+
+[node name="Control" type="Control" parent="PanelContainer/VBoxContainer/VSplitContainer"]
+margin_top = 271.0
+margin_right = 626.0
+margin_bottom = 438.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.65
 
 [node name="ModDirectoryEntry" parent="." instance=ExtResource( 5 )]
