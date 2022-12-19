@@ -57,6 +57,11 @@ public class ProfileManager : VBoxContainer
         }
 
         itemList.SortItemsByText();
+
+        itemList.AddItem("Current Active Profile");
+        int lastItemIndex = itemList.GetItemCount() - 1;
+
+        itemList.MoveItem(lastItemIndex, 0);
     }
 
     void SetProfileAsActive()
@@ -90,7 +95,7 @@ public class ProfileManager : VBoxContainer
 
         if (itemList.Items.Count != 0)
         {
-            itemList.Select(Mathf.Min(selectedindex, itemList.Items.Count / 3) - 1);
+            itemList.Select(Mathf.Min(selectedindex, itemList.GetItemCount()) - 1);
         }
     }
 
