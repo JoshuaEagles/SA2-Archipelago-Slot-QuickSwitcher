@@ -83,6 +83,9 @@ public class ProfileEditor : VBoxContainer
 
         var fileParser = new FileIniDataParser();
         fileParser.WriteFile(profilePath, profileData);
+
+        var profileChangedSignalProvider = GetNode<ProfileChangedSignalProvider>("/root/ProfileChangedSignalProvider");
+        profileChangedSignalProvider.EmitSignal(nameof(ProfileChangedSignalProvider.profile_changed));
     }
 
     IniParserConfiguration GetParserConfiguration()
